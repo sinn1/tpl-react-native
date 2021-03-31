@@ -1,4 +1,4 @@
-package com.template.app;
+package com.tandf.templateapp;
 
 import com.facebook.react.ReactActivity;
 
