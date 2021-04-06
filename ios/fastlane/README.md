@@ -24,16 +24,21 @@ Create on Developer Portal and App Store Connect
 ----
 
 ## iOS
-### ios signing
+### ios sign_mapping
 ```
-fastlane ios signing
+fastlane ios sign_mapping
 ```
-Sync signing
-### ios build
+Signing - manual mapping
+### ios build_adhoc
 ```
-fastlane ios build
+fastlane ios build_adhoc
 ```
-Build binary
+Build binary - ad-hoc
+### ios build_appstore
+```
+fastlane ios build_appstore
+```
+Build binary - appstore
 ### ios release
 ```
 fastlane ios release

@@ -1,14 +1,21 @@
+fastlane_require "dotenv"
+
+before_all do
+  Dotenv.load ".env.secret"
+end
+
 desc "Create on Developer Portal and App Store Connect"
 lane :create_app do
   create_app_online # produce
 end
 
 platform :ios do
+  before_all do
+    setup_circle_ci
+  end
 
-  desc "Sync signing"
-  lane :signing do
-    sync_code_signing # match
-
+  desc "Signing - manual mapping"
+  lane :sign_mapping do
     mapping = Actions.lane_context[
       SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING
     ]
@@ -17,13 +24,24 @@ platform :ios do
     )
   end
 
-  desc "Build binary"
-  lane :build do
-    signing
+
+  desc "Build binary - ad-hoc"
+  lane :build_adhoc do
+    sync_code_signing(type: "adhoc") # match
+    sign_mapping
+    build_ios_app(export_method: "ad-hoc") # gym
+  end
+
+  desc "Build binary - appstore"
+  lane :build_appstore do
+    sync_code_signing(type: "appstore") # match
+    sign_mapping
+    build_ios_app # gym
   end
 
   desc "Release"
   lane :release do
     build
+    upload_to_app_store # deliver
   end
 end
