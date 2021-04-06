@@ -396,10 +396,10 @@ app:
     IOS_SCHEME: TemplateApp
   - opts:
       is_expand: false
-    IOS_BUNDLE_ID: com.tandf.templateapp
+    IOS_BUNDLE_ID: com.tandf.app.template
   - opts:
       is_expand: false
     APPLE_DEVELOPER_TEAM_ID: 26ZS98S6V5
   - opts:
       is_expand: false
-    ANDROID_PACKAGE_NAME: com.tandf.templateapp
+    ANDROID_PACKAGE_NAME: com.tandf.app.template

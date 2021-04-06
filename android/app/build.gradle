@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.tandf.templateapp"
+        applicationId "com.tandf.app.template"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
